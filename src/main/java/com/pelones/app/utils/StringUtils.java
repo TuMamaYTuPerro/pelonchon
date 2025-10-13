@@ -59,33 +59,31 @@ public class StringUtils {
     }
 
     public void reOrder(String operationString, DynamicArray<String> dynamicArray){
-        boolean soyPelon;
-        char operador;
+
+        boolean controlOperand = false;
+        boolean controlOperator = false;
+        String operator;
 
         StringBuilder stringBuilder = new StringBuilder();
 
         for(int i = 0; i < operationString.length(); i++){
-            if(operationString.charAt(i) == '*'){
-                operador = operationString.charAt(i);
-            }
-            if(operationString.charAt(i) == '/'){
-                operador = operationString.charAt(i);
-            }
-            if(operationString.charAt(i) == '+'){
-                operador = operationString.charAt(i);
-            }
-            if(operationString.charAt(i) == '-'){
-                operador = operationString.charAt(i);
-            }
             if(operationString.charAt(i) >= '0' && operationString.charAt(i) <= '9'){
                 stringBuilder.append(operationString.charAt(i));
             } else {
                 dynamicArray.add(stringBuilder.toString());
                 stringBuilder.delete(0, stringBuilder.length());
-            }
+                controlOperand = true;
 
+                if(operationString.charAt(i) == '*' || operationString.charAt(i) == '/' 
+                    || operationString.charAt(i) =='+' || operationString.charAt(i) == '-'){
+                    operator = String.valueOf(operationString.charAt(i));
+                    
+                        if (controlOperand == true){
+                            dynamicArray.add(operator);
+                    }
+                }
+            }
         }
         dynamicArray.add(stringBuilder.toString());
     }
-
 }
