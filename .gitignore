@@ -1,1 +1,8 @@
 target/
+.classpath
+.*.swp
+.*.swo
+.project
+.settings/
+.vimrc
+*.vim
