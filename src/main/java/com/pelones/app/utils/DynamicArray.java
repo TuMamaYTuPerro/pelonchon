@@ -23,7 +23,7 @@ public class DynamicArray<T> {
     }
 
     public void add(T member) {
-        if(position > capacity-1) {
+        if(capacity - position <= 5) {
             grow();
         }
         array[position] = member;

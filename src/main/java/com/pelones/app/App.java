@@ -60,7 +60,7 @@ public class App {
             //stringUtils.printDummy(null);
             //stringUtils.printDummy("null");
             //System.out.println("Ingresa un numero");
-            //number = stringUtils.printNumbersValue(scanner.nextLine());
+            //number = stringUtils.numbersValue(scanner.nextLine());
             //System.out.println(number);
         //} catch(NullPointerException e) {
             //System.out.println("Hubo un error: " + e.getMessage());

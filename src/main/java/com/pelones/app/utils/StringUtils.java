@@ -34,7 +34,7 @@ public class StringUtils {
 
     }
 
-    public int printNumbersValue(String string) throws NotANumberException {
+    public int numbersValue(String string) throws NotANumberException {
 
         int number = 0;
         int idx = 0;
@@ -59,25 +59,23 @@ public class StringUtils {
     }
 
     public void reOrder(String operationString, DynamicArray<String> dynamicArray){
+        boolean soyPelon;
+        char operador;
 
         StringBuilder stringBuilder = new StringBuilder();
 
         for(int i = 0; i < operationString.length(); i++){
             if(operationString.charAt(i) == '*'){
-                dynamicArray.add(stringBuilder.toString());
-                stringBuilder.delete(0, stringBuilder.length());
+                operador = operationString.charAt(i);
             }
             if(operationString.charAt(i) == '/'){
-                dynamicArray.add(stringBuilder.toString());
-                stringBuilder.delete(0, stringBuilder.length());
+                operador = operationString.charAt(i);
             }
             if(operationString.charAt(i) == '+'){
-                dynamicArray.add(stringBuilder.toString());
-                stringBuilder.delete(0, stringBuilder.length());
+                operador = operationString.charAt(i);
             }
             if(operationString.charAt(i) == '-'){
-                dynamicArray.add(stringBuilder.toString());
-                stringBuilder.delete(0, stringBuilder.length());
+                operador = operationString.charAt(i);
             }
             if(operationString.charAt(i) >= '0' && operationString.charAt(i) <= '9'){
                 stringBuilder.append(operationString.charAt(i));
@@ -85,6 +83,7 @@ public class StringUtils {
                 dynamicArray.add(stringBuilder.toString());
                 stringBuilder.delete(0, stringBuilder.length());
             }
+
         }
         dynamicArray.add(stringBuilder.toString());
     }
