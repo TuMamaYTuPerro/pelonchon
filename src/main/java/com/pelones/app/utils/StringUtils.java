@@ -58,32 +58,38 @@ public class StringUtils {
         return number;
     }
 
-    public void reOrder(String operationString, DynamicArray<String> dynamicArray){
+    public void operationPush(String operationString, DynamicArray<String> dynamicArray){
 
-        boolean controlOperand = false;
-        boolean controlOperator = false;
         String operator;
+        //boolean operatorCtrl = false;
 
         StringBuilder stringBuilder = new StringBuilder();
 
         for(int i = 0; i < operationString.length(); i++){
+
             if(operationString.charAt(i) >= '0' && operationString.charAt(i) <= '9'){
                 stringBuilder.append(operationString.charAt(i));
             } else {
                 dynamicArray.add(stringBuilder.toString());
                 stringBuilder.delete(0, stringBuilder.length());
-                controlOperand = true;
 
                 if(operationString.charAt(i) == '*' || operationString.charAt(i) == '/' 
                     || operationString.charAt(i) =='+' || operationString.charAt(i) == '-'){
                     operator = String.valueOf(operationString.charAt(i));
-                    
-                        if (controlOperand == true){
-                            dynamicArray.add(operator);
-                    }
+                    dynamicArray.add(operator);
                 }
+                //operatorCtrl = true;
             }
         }
         dynamicArray.add(stringBuilder.toString());
+    }
+
+    public void reOrder (DynamicArray<String> dynamicArray){
+        
+        for(int index = 0; index < dynamicArray.size(); index++){
+            if(dynamicArray[index] == '/'||dynamicArray[index]=='*'){
+                
+            }
+        }
     }
 }
