@@ -1,6 +1,8 @@
 package com.pelones.app.utils;
 import java.lang.StringBuilder;
 import com.pelones.app.exceptions.NotANumberException;
+import com.pelones.app.utils.DynamicArray;
+
 
 public class StringUtils {
 
@@ -84,11 +86,18 @@ public class StringUtils {
         dynamicArray.add(stringBuilder.toString());
     }
 
-    public void reOrder (DynamicArray<String> dynamicArray){
-        
-        for(int index = 0; index < dynamicArray.size(); index++){
-            if(dynamicArray[index] == '/'||dynamicArray[index]=='*'){
-                
+    public void move(int index, DynamicArray<String> dynamicArray)throws ArrayIndexOutOfBoundsException {
+        if(index >= dynamicArray.size() || index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        dynamicArray.add(dynamicArray.getAt(index));
+        dynamicArray.erase(index);
+    }
+
+    public void reOrder(){
+        for(int index = 0; index < capacity; index++){
+            if(dynamicArray[index] == '/' || dynamicArray[index] == '*'){
+                move();
             }
         }
     }
