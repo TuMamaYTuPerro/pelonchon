@@ -55,7 +55,7 @@ public class DynamicArray<T> {
         }
         if (index < position-1){
             for(int i = index; i < position; i++){
-                array [index] = array[index + 1];
+                array[index] = array[index + 1];
                 index++;
             }
         }
@@ -63,7 +63,6 @@ public class DynamicArray<T> {
     }
 
     public int search(T toSearch){
-
         for(int index = 0; index <= position; index++) {
             if(toSearch.equals(array[index])) {
                 return index;
@@ -71,5 +70,4 @@ public class DynamicArray<T> {
         }
         return -1;
     }
-
 }

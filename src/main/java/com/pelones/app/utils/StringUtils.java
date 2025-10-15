@@ -94,11 +94,21 @@ public class StringUtils {
         dynamicArray.erase(index);
     }
 
-    public void reOrder(){
-        for(int index = 0; index < capacity; index++){
-            if(dynamicArray[index] == '/' || dynamicArray[index] == '*'){
-                move();
-            }
+    public void hierarchy(DynamicArray<String> dynamicArray){
+        int index;
+
+        index = dynamicArray.search(String.valueOf('/'));
+        if (index >= 0){
+            dynamicArray.move(index + 1);
+            dynamicArray.move(index);
+            dynamicArray.move(index - 1);
         }
+
+        index = dynamicArray.search(String.valueOf('*'));
+        if (index >= 0){
+            dynamicArray.move(index + 1);
+            dynamicArray.move(index);
+            dynamicArray.move(index - 1);
+        } 
     }
 }

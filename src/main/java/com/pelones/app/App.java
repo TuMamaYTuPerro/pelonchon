@@ -18,7 +18,7 @@ public class App {
 
         System.out.println("Ingresa una operacion: ");
         operationString = scanner.nextLine();
-        stringUtils.reOrder(operationString, dynamicArray);
+        stringUtils.operationPush(operationString, dynamicArray);
 
         for(int i = 0; i < dynamicArray.size(); i++) {
             System.out.println(dynamicArray.getAt(i));
