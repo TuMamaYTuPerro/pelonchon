@@ -90,6 +90,7 @@ public class StringUtils {
         if(index >= dynamicArray.size() || index < 0) {
             throw new ArrayIndexOutOfBoundsException();
         }
+
         dynamicArray.add(dynamicArray.getAt(index));
         dynamicArray.erase(index);
     }
@@ -99,16 +100,16 @@ public class StringUtils {
 
         index = dynamicArray.search(String.valueOf('/'));
         if (index >= 0){
-            dynamicArray.move(index + 1);
-            dynamicArray.move(index);
-            dynamicArray.move(index - 1);
+            move(index + 1,dynamicArray);
+            move(index,dynamicArray);
+            move(index - 1,dynamicArray);
         }
 
         index = dynamicArray.search(String.valueOf('*'));
         if (index >= 0){
-            dynamicArray.move(index + 1);
-            dynamicArray.move(index);
-            dynamicArray.move(index - 1);
+            move(index + 1,dynamicArray);
+            move(index,dynamicArray);
+            move(index - 1,dynamicArray);
         } 
     }
 }

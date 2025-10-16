@@ -23,7 +23,7 @@ public class DynamicArray<T> {
     }
 
     public void add(T member) {
-        if(capacity - position <= 5) {
+        if((capacity - position) <= 5) {
             grow();
         }
         array[position] = member;
@@ -70,4 +70,22 @@ public class DynamicArray<T> {
         }
         return -1;
     }
+
+	public void move(int src)  throws ArrayIndexOutOfBoundsException{
+		if(src >= position || src < 0) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+
+		if((capacity - position) == 0) {
+			grow();
+		}
+		array[position] = array[src];
+        if (src < position-1){
+            for(int i = src; i <= position; i++){
+                array[src] = array[src + 1];
+                src++;
+            }
+        }
+
+	}
 }
