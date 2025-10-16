@@ -35,6 +35,14 @@ public class DynamicArray<T> {
         return (T) array[position-1];
     }
 
+    @SuppressWarnings("unchecked") // Suppress the unchecked cast warning
+	public T popBack() {
+		T object = (T) array[position-1];
+
+		position--;
+		return object;
+	}
+
     private void grow() {
         this.capacity *= 2;
         Object[] newArray = Arrays.copyOf(this.array,this.capacity);
